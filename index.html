@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Srinidhi! 🎂</title>
+  <meta name="description" content="A special birthday celebration for the most amazing person." />
+
+  <!-- Fonts: Bebas Neue (impact), Nunito (cozy), Press Start 2P (pixel) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;600;700;800;900&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Screen flash overlay for transitions -->
+    <div id="flash-overlay"></div>
+    <canvas id="cursor-trail-canvas" aria-hidden="true"></canvas>
+
+    <!-- Mute/Unmute button top right — always visible -->
+    <button id="mute-btn" aria-label="Toggle audio">
+      <span class="mute-icon">🔇</span>
+      <span class="mute-label">sound off</span>
+    </button>
+
+    <!-- Navigation arrows -->
+    <button id="next-btn" class="nav-btn nav-next hide-btn" aria-label="Next scene">
+      <span>next</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="3" stroke-linecap="square" />
+      </svg>
+    </button>
+    <button id="prev-btn" class="nav-btn nav-prev hide-btn" aria-label="Previous scene">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="3" stroke-linecap="square" />
+      </svg>
+      <span>back</span>
+    </button>
+
+    <!-- ═══════════════ SCENES ═══════════════ -->
+    <div id="scenes-wrap">
+
+      <!-- ────── SCENE 1 : HOME ✿ ────── -->
+      <section id="scene-1" class="scene active" data-scene="1">
+        <!-- Cozy BG layers -->
+        <div class="s1-bg"></div>
+        <div class="fairy-lights" aria-hidden="true"></div>
+        <!-- Floating hearts canvas -->
+        <canvas id="hearts-canvas" aria-hidden="true"></canvas>
+
+        <div class="s1-body">
+          <!-- Character — clickable! -->
+          <div class="char-wrap" id="char-wrap">
+            <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+              <defs>
+                <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                  <polyline points="1,1 4,3 1,5" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </marker>
+              </defs>
+            </svg>
+
+            <!-- Notes -->
+            <div class="float-note note-1">
+              <span class="fn-text">This is my bestie</span>
+              <svg class="fn-arrow" viewBox="0 0 50 50" aria-hidden="true">
+                <path d="M 5,2 C 25,5 40,18 44,44" fill="none" stroke="currentColor" stroke-width="3"
+                  stroke-linecap="round" marker-end="url(#arrowhead)" />
+              </svg>
+            </div>
+            <div class="float-note note-2">
+              <span class="fn-text">she is the coolest person</span>
+              <svg class="fn-arrow" viewBox="0 0 50 50" aria-hidden="true">
+                <path d="M 45,2 C 25,5 10,18 6,44" fill="none" stroke="currentColor" stroke-width="3"
+                  stroke-linecap="round" marker-end="url(#arrowhead)" />
+              </svg>
+            </div>
+            <div class="float-note note-3">
+              <span class="fn-text">My partner in Crime</span>
+              <svg class="fn-arrow" viewBox="0 0 50 50" aria-hidden="true">
+                <path d="M 5,48 C 25,45 40,32 44,6" fill="none" stroke="currentColor" stroke-width="3"
+                  stroke-linecap="round" marker-end="url(#arrowhead)" />
+              </svg>
+            </div>
+
+            <img src="/transperent.png" alt="Srinidhi pixel art" id="char-img" draggable="false">
+            <!-- Speech bubble -->
+            <div class="speech-bubble" id="speech-bubble">
+              <span id="speech-text">click me! ♡</span>
+            </div>
+          </div>
+
+          <!-- Text block -->
+          <div class="s1-text">
+            <h1 class="s1-line line-huge">THIS IS SRINIDHI!</h1>
+            <p class="s1-line line-medium">and she is kind of a big deal.</p>
+            <p class="s1-line line-small">← her words, not mine</p>
+          </div>
+
+          <!-- Cozy pixel cards — interactive -->
+          <div class="s1-cards">
+            <div class="px-card" data-emoji="😇">✦ Certified chaotic good</div>
+            <div class="px-card" data-emoji="🤔">✦ Professional debater</div>
+            <div class="px-card" data-emoji="✨">✦ Suspiciously good at everything</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ────── SCENE 2 : THE TRAIL ────── -->
+      <section id="scene-2" class="scene" data-scene="2">
+        <canvas id="star-canvas" aria-hidden="true"></canvas>
+
+        <!-- Rocket -->
+        <div id="rocket-wrap">
+          <div id="rocket-body">✦</div>
+        </div>
+
+        <!-- Trail particle canvas -->
+        <canvas id="trail-canvas" aria-hidden="true"></canvas>
+
+        <!-- Trail text overlay -->
+        <div class="trail-text-wrap">
+          <!-- First chunk -->
+          <div class="tr-line tr-small" data-chunk="1">she is my—</div>
+          <div class="tr-line tr-huge" data-chunk="1">BESTEST</div>
+          <div class="tr-line tr-soft" data-chunk="1">best friend.</div>
+          <!-- Second chunk -->
+          <div class="tr-line tr-small" data-chunk="2">the one who—</div>
+          <div class="tr-line tr-huge" data-chunk="2">shows up.</div>
+          <div class="tr-line tr-soft" data-chunk="2">every single time.</div>
+        </div>
+      </section>
+
+      <!-- ────── SCENE 3 : VIDEO VIBES ✿ ────── -->
+      <section id="scene-3" class="scene" data-scene="3">
+        <video id="s3-video" class="s3-video-bg" muted playsinline loop preload="auto">
+          <source src="/Video-305.mp4" type="video/mp4">
+        </video>
+        <div class="s3-overlay" aria-hidden="true"></div>
+        <!-- Sparkle canvas for mouse interaction -->
+        <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+        <div id="fact-display"></div>
+      </section>
+
+      <!-- ────── SCENE 4 : BIRTHDAY ────── -->
+      <section id="scene-4" class="scene" data-scene="4">
+        <video id="s4-video" class="s4-video-bg" muted playsinline preload="auto">
+          <source src="/Video-975.mp4" type="video/mp4">
+        </video>
+        <div class="s4-body">
+          <button id="read-letter-btn" class="px-btn hide-btn">read her letter →</button>
+        </div>
+      </section>
+
+      <!-- ────── SCENE 5 : THE LETTER ────── -->
+      <section id="scene-5" class="scene" data-scene="5">
+        <div class="s5-bg" aria-hidden="true"></div>
+        <div class="letter-layout">
+          <div class="letter-card" id="letter-card">
+            <div class="wax-seal" id="wax-seal">♥</div>
+            <div id="letter-body"></div>
+          </div>
+
+          <button id="restart-btn" class="px-btn hide-btn">play it again? ↺</button>
+      </section>
+
+    </div><!-- /scenes-wrap -->
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>

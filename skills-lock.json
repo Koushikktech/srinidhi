@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "pbakaus/impeccable",
+      "sourceType": "github",
+      "computedHash": "5773994279165697bfce414bc803d5c3f98d71b494f303adb1cec43711bf1547"
+    }
+  }
+}

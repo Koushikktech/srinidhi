@@ -1,0 +1,25 @@
+{
+  "name": "birthday",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@tsparticles/basic": "^3.7.1",
+    "@tsparticles/engine": "^3.7.1",
+    "canvas-confetti": "^1.9.3",
+    "gsap": "^3.12.5",
+    "howler": "^2.2.4",
+    "three": "^0.171.0",
+    "tsparticles": "^3.7.1",
+    "typed.js": "^2.1.0"
+  }
+}
